@@ -14,14 +14,20 @@ function onDeviceReady() {
 
 // onSuccess Geolocation
 function onSuccess(position) {
-    var element = document.getElementById('geolocation');
-    element.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />' +
-                    'Longitude: ' + position.coords.longitude + '<br />';
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
 
-    new Maplace({
-        locations: [position.coords.latitude, position.coords.longitude],
-        controls_on_map: false
-    }).Load();
+    //var element = document.getElementById('geolocation');
+    //element.innerHTML = 'Latitude: ' + latitude + '<br />' +
+    //                'Longitude: ' + longitude + '<br />';
+
+    output.innerHTML = '';
+
+    var output = document.getElementById("out");
+    var img = new Image();
+    img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
+
+    output.appendChild(img);
 }
 
 // onError Callback receives a PositionError object
