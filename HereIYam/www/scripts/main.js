@@ -16,17 +16,11 @@ function onSuccess(position) {
     var element = document.getElementById('geolocation');
     element.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />' +
                     'Longitude: ' + position.coords.longitude + '<br />';
-}
 
-// clear the watch that was started earlier
-function clearWatch() {
-    if (watchID != null) {
-        navigator.geolocation.clearWatch(watchID);
-        watchID = null;
-
-        var element = document.getElementById('geolocation');
-        element.innerHTML = '';
-    }
+    new Maplace({
+        locations: [position.coords.latitude, position.coords.longitude],
+        controls_on_map: false
+    }).Load();
 }
 
 // onError Callback receives a PositionError object
