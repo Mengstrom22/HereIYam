@@ -1,34 +1,47 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Here I Yam</title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
-    <meta charset="utf-8">
 
-    <link rel="stylesheet" href="styles/main.css" />
+    <title>Cordova WP7</title>
+
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-    <script type="text/javascript" charset="utf-8" src="scripts/main.js"></script>
+    <script type="text/javascript">
+        // Wait for Cordova to load
+        document.addEventListener("deviceready", onDeviceReady, false);
+        var watchID = null;
+        // Cordova is ready
+        function onDeviceReady() {
+            // Get the most accurate position updates available on the
+            // device.
+            var options = { enableHighAccuracy: true };
+            watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+        }
+        // onSuccess Geolocation
+        function onSuccess(position) {
+            var element = document.getElementById('geolocation');
+            element.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />' +
+                            'Longitude: ' + position.coords.longitude + '<br />' +
+                            '<hr />' + element.innerHTML;
+        }
+        // clear the watch that was started earlier
+        function clearWatch() {
+            if (watchID != null) {
+                navigator.geolocation.clearWatch(watchID);
+                watchID = null;
+            }
+        }
+        // onError Callback receives a PositionError object
+        function onError(error) {
+            alert('code: ' + error.code + '\n' +
+            'message: ' + error.message + '\n');
+        }
+    </script>
 </head>
 <body>
-    <header class="header">
-        <h1>BOSS Sample</h1>
-    </header>
-    <div class="content">
-        <div class="action-area ch30">
-            <button class="button dh" id="watchButton">Start Geolocation Watch</button>
-            <button class="button dh" id="refreshButton">Refresh Geolocation</button>
-        </div>
-        <div class="result-area ch70">
-            <div class="results">
-                <div id="results" class="desc"></div>
-            </div>
-            <div class="separator"></div>
-        </div>
-    </div>
+    <p id="geolocation">Watching geolocation...</p>
+    <button onclick="clearWatch();">Clear Watch</button>
 </body>
-<footer class="footer">
-    <div>Engers and KingKing</div>
-</footer>
 </html>
