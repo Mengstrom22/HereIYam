@@ -9,7 +9,6 @@ function onDeviceReady() {
     // device.
     var options = { enableHighAccuracy: true };
     watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
-    console.log('hi' + watchID);
 }
 
 // onSuccess Geolocation
@@ -32,5 +31,5 @@ function clearWatch() {
 
 // onError Callback receives a PositionError object
 function onError(error) {
-    alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
+    console.log('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
 }
