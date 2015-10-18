@@ -17,10 +17,6 @@ function onSuccess(position) {
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
 
-    //var element = document.getElementById('geolocation');
-    //element.innerHTML = 'Latitude: ' + latitude + '<br />' +
-    //                'Longitude: ' + longitude + '<br />';
-
     var output = document.getElementById("out");
 
     output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
