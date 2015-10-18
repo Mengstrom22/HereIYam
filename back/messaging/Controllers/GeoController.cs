@@ -5,15 +5,7 @@
 
     public class GeoController : ApiController
     {
-        // POST api/geo
-        /// <summary>
-        /// Log current location, and share it
-        /// </summary>
-        /// <param name="location">Client Location</param>
-        /// <returns>none</returns>
-        /// <remarks>Multi-casts location to all listeners</remarks>
-        /// <response code="400">Bad request</response>
-        /// <response code="500">Internal Server Error</response>
+        // PUT api/geo
         [HttpPut]
         public IHttpActionResult Put(ClientLocation location)
         {
