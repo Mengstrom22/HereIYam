@@ -1,10 +1,14 @@
 ﻿namespace messaging.Controllers
 {
     using System.Web.Http;
+    using HereIYam.Core;
     using HereIYam.Models;
+    using Newtonsoft.Json;
 
     public class GeoController : ApiController
     {
+        private readonly GeoHub hub = new GeoHub();
+
         // PUT api/geo
         [HttpPut]
         public IHttpActionResult Put(ClientLocation location)
@@ -21,8 +25,8 @@
             {
                 return base.BadRequest("unknown longitude");
             }
-
-            //Push to SignalR
+            
+            hub.SendToAll(JsonConvert.SerializeObject(location));
 
             return base.Ok();
         }
