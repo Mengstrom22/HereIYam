@@ -21,9 +21,10 @@ function onSuccess(position) {
     //element.innerHTML = 'Latitude: ' + latitude + '<br />' +
     //                'Longitude: ' + longitude + '<br />';
 
-    output.innerHTML = '';
-
     var output = document.getElementById("out");
+
+    output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
+
     var img = new Image();
     img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
 
