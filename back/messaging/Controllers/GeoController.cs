@@ -1,6 +1,5 @@
 ﻿namespace messaging.Controllers
 {
-    using System;
     using System.Web.Http;
     using HereIYam.Core;
     using HereIYam.Models;
