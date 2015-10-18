@@ -11,7 +11,7 @@ namespace HereIYam
             var thisAssembly = typeof(SwaggerConfig).Assembly;
 
             GlobalConfiguration.Configuration
-                .EnableSwagger(c => { c.SingleApiVersion("v1", "HereIYam"); })
+                .EnableSwagger(c => { c.SingleApiVersion("v1", "Here I Yam"); })
                 .EnableSwaggerUi(c => { });
         }
     }
