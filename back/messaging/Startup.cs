@@ -1,9 +1,9 @@
-﻿[assembly: Microsoft.Owin.OwinStartup(typeof(HereIYam.App_Start.Startup))]
-namespace HereIYam.App_Start
+﻿[assembly: Microsoft.Owin.OwinStartup(typeof(HereIYam.Startup))]
+namespace HereIYam
 {
     using Owin;
 
-    public class Startup
+    public partial class Startup
     {
         public void Configuration(IAppBuilder app)
         {
