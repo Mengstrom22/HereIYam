@@ -1,18 +1,23 @@
 ﻿namespace messaging.Controllers
 {
     using System.Web.Http;
+    using HereIYam.Models;
 
     public class GeoController : ApiController
     {
         // POST api/geo
         [HttpPost]
-        public IHttpActionResult Post(double lat, double lng)
+        public IHttpActionResult Post(ClientLocation cl)
         {
-            if (0 >= lat)
+            if (null == cl)
+            {
+                return base.BadRequest("unknown lat/long");
+            }
+            if (0 >= cl.latitude)
             {
                 return base.BadRequest("unknown latitude");
             }
-            if (0 >= lng)
+            if (0 >= cl.longitude)
             {
                 return base.BadRequest("unknown longitude");
             }
