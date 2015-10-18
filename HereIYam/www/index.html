@@ -12,6 +12,9 @@
     
 </head>
 <body>
+    <div id="out">Loading</div>
+
+
     <div>
         <strong>Notes</strong>
         <ul>
@@ -24,6 +27,22 @@
         script type="text/javascript" src="scripts/jquery.signalR-2.2.0.min.js" script
         script type="text/javascript" src="https://microsoft-apiappf8ea0128d4734c539c1141a081507afc.azurewebsites.net/signalr/hubs" /script
     </div>
-    <div id="out">Loading</div>
+    <!-- UN-TESTED... Stubs-->
+    <!--Add script to update the page and send messages.-->
+    <script type="text/javascript">
+        $(function () {
+            // Declare a proxy to reference the hub.
+            var chat = $.connection.chatHub;
+            // Create a function that the hub can call to broadcast messages.
+            chat.client.multicast = function (name, message) {
+                // Display a location on the map.
+            };
+
+            // Start the connection.
+            $.connection.hub.start().done(function () {
+                chat.server.multicast('{"latitude": 100, "longitude": 100}');
+            });
+        });
+    </script>
 </body>
 </html>

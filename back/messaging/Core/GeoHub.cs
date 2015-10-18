@@ -6,7 +6,7 @@
     {
         public void SendToAll(string value)
         {
-            Clients.All.hubMessage(value);
+            Clients.All.multicast(value);
         }
     }
 }
