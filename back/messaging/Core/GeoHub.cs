@@ -6,9 +6,9 @@
     [HubName("geo")]
     public class GeoHub : Hub
     {
-        public void MultiCast(string value)
+        public void MultiCast(double lat, double lng)
         {
-            Clients.All.multicast(value);
+            Clients.All.multicast(lat, lng);
         }
     }
 }
