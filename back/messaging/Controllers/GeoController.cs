@@ -1,5 +1,6 @@
 ﻿namespace messaging.Controllers
 {
+    using System;
     using System.Web.Http;
     using HereIYam.Core;
     using HereIYam.Models;
@@ -7,7 +8,7 @@
 
     public class GeoController : ApiController
     {
-        private readonly GeoHub hub = new GeoHub();
+        private readonly Lazy<GeoHub> hub = new Lazy<GeoHub>();
 
         // PUT api/geo
         [HttpPut]
@@ -26,7 +27,7 @@
                 return base.BadRequest("unknown longitude");
             }
             
-            hub.SendToAll(JsonConvert.SerializeObject(location));
+            hub.Value.SendToAll(JsonConvert.SerializeObject(location));
 
             return base.Ok();
         }
