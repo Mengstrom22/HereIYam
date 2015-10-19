@@ -21,8 +21,8 @@
     <script src="cordova.js"></script>
     <script type="text/javascript" src="scripts/main.js"></script>
     <!--SignalR-->
-    <script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script type="text/javascript" src="http://hereiyam.azurewebsites.net/scripts/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="http://hereiyam.azurewebsites.net/scripts/jquery.signalR-2.2.0.min.js"></script>
 
     <!--Map-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBloAwqTZNxWjpGLDyfYR_PTcVxUB8F8o8&sensor=true"></script>
@@ -37,10 +37,9 @@
         <input type="button" id="send" value="Send" />
         <ul id="discussion"></ul>
     </div>
-    <!-- http://127.0.0.1:9615/signalr/hubs -->
-    <!-- https://microsoft-apiappf8ea0128d4734c539c1141a081507afc.azurewebsites.net/signalr/hubs -->
+    <!-- http://hereiyam.azurewebsites.net/signalr/hubs -->
 
-    <script type="text/javascript" src="http://localhost:9615/Test-SignalR/index.htm"></script>
+    <script type="text/javascript" src="http://hereiyam.azurewebsites.net/signalr/hubs"></script>
     <script type="text/javascript">
         $(function () {
             var hub = $.connection.geo;
