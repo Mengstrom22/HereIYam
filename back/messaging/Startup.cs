@@ -1,10 +1,9 @@
-﻿using Microsoft.Owin;
-using Owin;
-
-[assembly: OwinStartup(typeof(HereIYam.Startup))]
-
+﻿[assembly: Microsoft.Owin.OwinStartup(typeof(HereIYam.Startup))]
 namespace HereIYam
 {
+    using Microsoft.AspNet.SignalR;
+    using Owin;
+
     public class Startup
     {
         public void Configuration(IAppBuilder app)
