@@ -8,41 +8,38 @@
     <!-- SCRIPTS -->
     <script src="cordova.js"></script>
     <script type="text/javascript" src="scripts/main.js"></script>
+    <!--SignalR-->
+    <script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.signalR-2.2.0.min.js"></script>
+
+    <!--Map-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBloAwqTZNxWjpGLDyfYR_PTcVxUB8F8o8&sensor=true"></script>
-    
 </head>
 <body>
     <div id="out">Loading</div>
 
-
-    <div>
-        <strong>Notes</strong>
-        <ul>
-            <li><a href="https://microsoft-apiappf8ea0128d4734c539c1141a081507afc.azurewebsites.net/swagger/ui/index">Swagger</a></li>
-            <li>Put: https://microsoft-apiappf8ea0128d4734c539c1141a081507afc.azurewebsites.net/api/geo</li>
-            <li>Model: { "latitude": 100, "longitude": 500}</li>
-            <li>SignalR coming...</li>
-        </ul>
-        <strong>TO ADD</strong>
-        script type="text/javascript" src="scripts/jquery.signalR-2.2.0.min.js" script
-        script type="text/javascript" src="https://microsoft-apiappf8ea0128d4734c539c1141a081507afc.azurewebsites.net/signalr/hubs" /script
+    <!--SignalR-->
+    <div class="container">
+        <input type="text" id="lat" value="500" />
+        <input type="text" id="lng" value="501" />
+        <input type="button" id="send" value="Send" />
+        <ul id="discussion"></ul>
     </div>
-    <!-- UN-TESTED... Stubs-->
-    <!--Add script to update the page and send messages.-->
+    <script type="text/javascript" src="https://microsoft-apiappf8ea0128d4734c539c1141a081507afc.azurewebsites.net/signalr/hubs"></script>
     <script type="text/javascript">
         $(function () {
-            // Declare a proxy to reference the hub.
-            var chat = $.connection.chatHub;
-            // Create a function that the hub can call to broadcast messages.
-            chat.client.multicast = function (name, message) {
-                // Display a location on the map.
+            var hub = $.connection.geo;
+            hub.client.MultiCast = function (lat, lng) {
+                $('#discussion').append('<li>Latitude:&nbsp;' + lat + '&nbsp;&nbsp;&nbsp;Longitude:&nbsp;' + lng + '</li>');
             };
 
-            // Start the connection.
             $.connection.hub.start().done(function () {
-                chat.server.multicast('{"latitude": 100, "longitude": 100}');
+                $('#send').click(function () {
+                    hub.server.multiCast($('#lat').val(), $('#lng').val());
+                });
             });
         });
     </script>
+    <!--SignalR-->
 </body>
 </html>
