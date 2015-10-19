@@ -9,7 +9,6 @@ function onDeviceReady() {
     // device.
     var options = { enableHighAccuracy: true };
     watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
-    
 }
 
 // onSuccess Geolocation
