@@ -18,11 +18,12 @@ function onSuccess(position) {
 
     var output = document.getElementById("out");
 
+    output.innerHTML = '';
+
     var img = new Image();
     img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
 
     output.appendChild(img);
-
 
     var lattxt = document.getElementById("lattxt").value = latitude;
     var longtxt = document.getElementById("lngtxt").value = longitude;

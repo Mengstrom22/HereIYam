@@ -12,10 +12,10 @@
 
     <!-- SCRIPTS -->
     <script src="cordova.js"></script>
-    <script type="text/javascript" src="scripts/main.js"></script>
     <!--SignalR-->
     <script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
 
     <!--Map-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBloAwqTZNxWjpGLDyfYR_PTcVxUB8F8o8&sensor=true"></script>
@@ -28,7 +28,7 @@
         <input type="text" id="lattxt" value="500" />
         <input type="text" id="lngtxt" value="501" />
         <input type="button" id="send" value="Send" />
-        <ul id="discussion"></ul>
+        <ul id="pointsSent"></ul>
     </div>
 
     <script type="text/javascript" src="http://hereiyam.azurewebsites.net/signalr/hubs"></script>
@@ -38,7 +38,7 @@
             var hub = $.connection.geo;
 
             hub.client.MultiCast = function (lat, lng) {
-                $('#discussion').append('<li>Latitude:&nbsp;' + lat + '&nbsp;&nbsp;&nbsp;Longitude:&nbsp;' + lng + '</li>');
+                $('#pointsSent').append('<li>Latitude:&nbsp;' + lat + '&nbsp;&nbsp;&nbsp;Longitude:&nbsp;' + lng + '</li>');
             };
 
             $.connection.hub.start().done(function () {
@@ -48,6 +48,5 @@
             });
         });
     </script>
-    <!--SignalR-->
 </body>
 </html>
