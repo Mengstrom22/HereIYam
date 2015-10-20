@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "messaging", "messaging\mess
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheApi", "CacheApi\CacheApi.csproj", "{31625B93-96C3-45BB-B65A-E301004F6B86}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Browser", "Browser\Browser.csproj", "{9986BDBF-D8EC-480D-A4D9-372A7B8BAC53}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{31625B93-96C3-45BB-B65A-E301004F6B86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31625B93-96C3-45BB-B65A-E301004F6B86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31625B93-96C3-45BB-B65A-E301004F6B86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9986BDBF-D8EC-480D-A4D9-372A7B8BAC53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9986BDBF-D8EC-480D-A4D9-372A7B8BAC53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9986BDBF-D8EC-480D-A4D9-372A7B8BAC53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9986BDBF-D8EC-480D-A4D9-372A7B8BAC53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
