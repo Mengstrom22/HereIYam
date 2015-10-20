@@ -34,7 +34,7 @@
 
             $.connection.hub.start().done(function () {
                 $('#send').click(function () {
-                    hub.server.multiCast($('#lat').val(), $('#lng').val());
+                    hub.server.myLocation($('#lat').val(), $('#lng').val());
                 });
             });
         });
