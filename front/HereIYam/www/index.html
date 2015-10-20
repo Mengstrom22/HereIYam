@@ -43,13 +43,14 @@
     <script type="text/javascript">
         $(function () {
             var hub = $.connection.geo;
+
             hub.client.MultiCast = function (lat, lng) {
                 $('#discussion').append('<li>Latitude:&nbsp;' + lat + '&nbsp;&nbsp;&nbsp;Longitude:&nbsp;' + lng + '</li>');
             };
 
             $.connection.hub.start().done(function () {
                 $('#send').click(function () {
-                    hub.server.multiCast($('#lat').val(), $('#lng').val());
+                    hub.server.myLocation($('#lat').val(), $('#lng').val());
                 });
             });
         });

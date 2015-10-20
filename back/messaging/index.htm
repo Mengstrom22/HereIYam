@@ -27,7 +27,6 @@
         $(function () {
             var hub = $.connection.geo;
 
-            // Create a function that the hub can call to broadcast messages.
             hub.client.MultiCast = function (lat, lng) {
                 $('#discussion').append('<li>Latitude:&nbsp;' + lat + '&nbsp;&nbsp;&nbsp;Longitude:&nbsp;' + lng + '</li>');
             };
