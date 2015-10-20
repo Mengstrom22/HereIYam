@@ -4,7 +4,7 @@
   <description>Social locations</description>
   <author href="http://cordova.io" email="jef@agilebusinesscloud.com">Marcus &amp; Jef</author>
   <content src="index.html" />
-  <access origin="*" />
+  <access origin="hereiyam.azurewebsites.net" />
   <vs:features />
   <preference name="SplashScreen" value="screen" />
   <preference name="windows-target-version" value="8.1" />
@@ -106,4 +106,6 @@
   </platform>
   <vs:plugin name="cordova-plugin-geolocation" version="1.0.1" />
   <preference name="Fullscreen" value="True" />
+  <access origin="maps.googleapis.com" />
+  <access />
 </widget>

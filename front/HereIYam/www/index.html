@@ -8,21 +8,14 @@
     <title>Here I Yam</title>
     <!-- CSS -->
     <style type="text/css" href="css/index.css"></style>
-    <style type="text/css">
-        .container {
-            background-color: #99CCFF;
-            border: thick solid #808080;
-            padding: 20px;
-            margin: 20px;
-        }
-    </style>
+    <style type="text/css" href="css/bootstrap.min.css"></style>
 
     <!-- SCRIPTS -->
     <script src="cordova.js"></script>
     <script type="text/javascript" src="scripts/main.js"></script>
     <!--SignalR-->
-    <script type="text/javascript" src="http://hereiyam.azurewebsites.net/scripts/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="http://hereiyam.azurewebsites.net/scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.signalR-2.2.0.min.js"></script>
 
     <!--Map-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBloAwqTZNxWjpGLDyfYR_PTcVxUB8F8o8&sensor=true"></script>
@@ -32,14 +25,14 @@
 
     <!--SignalR-->
     <div class="container">
-        <input type="text" id="lat" value="500" />
-        <input type="text" id="lng" value="501" />
+        <input type="text" id="lattxt" value="500" />
+        <input type="text" id="lngtxt" value="501" />
         <input type="button" id="send" value="Send" />
         <ul id="discussion"></ul>
     </div>
-    <!-- http://hereiyam.azurewebsites.net/signalr/hubs -->
 
     <script type="text/javascript" src="http://hereiyam.azurewebsites.net/signalr/hubs"></script>
+
     <script type="text/javascript">
         $(function () {
             var hub = $.connection.geo;
