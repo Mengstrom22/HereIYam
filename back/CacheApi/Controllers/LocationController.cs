@@ -16,6 +16,7 @@
             locations.Add(new ClientLocation { Latitude = r.Next(), Longitude = r.Next() });
             locations.Add(new ClientLocation { Latitude = r.Next(), Longitude = r.Next() });
             locations.Add(new ClientLocation { Latitude = r.Next(), Longitude = r.Next() });
+
             return locations;
         }
 
